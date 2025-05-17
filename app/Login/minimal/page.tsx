@@ -1,7 +1,9 @@
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 import LogoHeader from "@/app/Logo/LogoHeader"
+import { useState } from "react"
 
 export default function MinimalLoginPage() {
   return (
@@ -14,7 +16,7 @@ export default function MinimalLoginPage() {
               <LogoHeader width={300} />
             </Link>
 
-            <h2 className="text-xl font-semibold mb-2">Connect Your Spotify Account</h2>
+           <SpotifyLoginButton/>
           </div>
 
           <div className="mb-6">
@@ -32,13 +34,7 @@ export default function MinimalLoginPage() {
             </div>
           </div>
 
-          <Button
-            className="w-full py-6 rounded-full bg-[#1DB954] hover:bg-[#1aa34a] text-white flex items-center justify-center gap-3"
-            size="lg"
-          >
-            <SpotifyLogo className="h-5 w-5" />
-            <span className="font-medium">Continue with Spotify</span>
-          </Button>
+          <SpotifyLoginButton/>
         </div>
       </div>
 
@@ -61,3 +57,34 @@ function SpotifyLogo({ className }: { className?: string }) {
     </svg>
   )
 }
+
+
+interface SpotifyLoginButtonProps {
+  className?: string
+  size?: "default" | "sm" | "lg" | "icon"
+  variant?: "default" | "outline" | "ghost"
+}
+
+export function SpotifyLoginButton({ className = "", size = "default", variant = "default" }: SpotifyLoginButtonProps) {
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleLogin = async () => {
+    setIsLoading(true)
+    // Redirect to our login API route
+    window.location.href = "/api/login"
+  }
+
+  return (
+    <Button
+      className={`${className} ${variant === "default" ? "bg-[#1DB954] hover:bg-[#1aa34a] text-white" : ""} flex items-center justify-center gap-2 rounded-full`}
+      size={size}
+      variant={variant}
+      onClick={handleLogin}
+      disabled={isLoading}
+    >
+      <SpotifyLogo className="h-5 w-5" />
+      <span>{isLoading ? "Connecting..." : "Continue with Spotify"}</span>
+    </Button>
+  )
+}
+
