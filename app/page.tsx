@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import type React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Sparkles, Music, Heart, Disc, Headphones, AudioWaveformIcon as Waveform } from "lucide-react"
+import { Sparkles, Heart, Disc, Headphones, AudioWaveformIcon as Waveform } from "lucide-react"
 import LogoHeader from "./Logo/LogoHeader"
 import { BiLogoSpotify } from "react-icons/bi";
 
