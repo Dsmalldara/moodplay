@@ -65,7 +65,7 @@ interface SpotifyLoginButtonProps {
   variant?: "default" | "outline" | "ghost"
 }
 
-export function SpotifyLoginButton({ className = "", size = "default", variant = "default" }: SpotifyLoginButtonProps) {
+ function SpotifyLoginButton({ className = "", size = "default", variant = "default" }: SpotifyLoginButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleLogin = async () => {
