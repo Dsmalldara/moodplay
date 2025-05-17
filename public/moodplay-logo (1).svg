@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <!-- Background sound waves (subtle element) -->
+  <path d="M380 60 Q 375 40, 370 60 T 360 60 T 350 60 T 340 60 T 330 60" fill="none" stroke="rgba(134, 168, 231, 0.15)" stroke-width="1.5" />
+  <path d="M380 60 Q 375 80, 370 60 T 360 60 T 350 60 T 340 60 T 330 60" fill="none" stroke="rgba(134, 168, 231, 0.15)" stroke-width="1.5" />
+
+  <!-- Logo Text -->
+  <!-- "Mood" part in deep navy -->
+  <text x="60" y="75" font-family="Poppins, Arial, sans-serif" font-size="42" font-weight="600" fill="#2C3E50" letter-spacing="-0.5">Mood</text>
+  
+  <!-- "Play" part with gradient -->
+  <text x="185" y="75" font-family="Poppins, Arial, sans-serif" font-size="42" font-weight="600" fill="url(#gradient)" letter-spacing="-0.5">Play</text>
+  
+  <!-- Small music note dot for the "y" -->
+  <circle cx="287" cy="75" r="3" fill="url(#gradient)" />
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D16BA5" /> <!-- Pink -->
+      <stop offset="50%" stop-color="#86A8E7" /> <!-- Blue -->
+      <stop offset="100%" stop-color="#5FFBF1" /> <!-- Teal -->
+    </linearGradient>
+  </defs>
+</svg>

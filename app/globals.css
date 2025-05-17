@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&display=swap');
+@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Base colors - deep and rich but not overwhelming */
+  --background: #0a0118; /* Deep purple-blue */
+  --foreground: #ffffff; /* Soft white with hint of lavender */
+
+  /* UI elements */
+  --card: #150b30;
+  --card-foreground: #ffffff;
+
+  --primary: #9d4edd;
+  --primary-foreground: #ffffff;
+
+  --secondary: #3a86ff;
+  --secondary-foreground: #ffffff;
+
+  --accent: #ff6b6b;
+  --accent-foreground: #ffffff;
+
+  --muted: #2d1b50;
+  --muted-foreground: #a8a8b3;
+
+  --destructive: #ff4d4f;
+  --destructive-foreground: #ffffff;
+
+  --border: #2d1b50;
+  --input: #2d1b50;
+  --ring: #9d4edd;
+
+  --radius: 0.625rem;
+}
+
+.light {
+  /* Base colors - softer but still vibrant */
+  --background: #1a1333; /* Deeper than before but not as dark as default */
+  --foreground: #ffffff;
+
+  /* UI elements */
+  --card: #251d45;
+  --card-foreground: #ffffff;
+  --popover: #251d45;
+  --popover-foreground: #ffffff;
+
+  /* Primary - Lavender */
+  --primary: #b370dd;
+  --primary-foreground: #2d1b50;
+
+  /* Secondary - Teal */
+  --secondary: #4a96ff;
+  --secondary-foreground: #2d1b50;
+
+  /* Accent - Coral */
+  --accent: #ff8b8b;
+  --accent-foreground: #2d1b50;
+
+  /* Muted */
+  --muted: #3d2b60;
+  --muted-foreground: #b8b8c3;
+
+  /* Other UI elements */
+  --destructive: #ff6d6f;
+  --destructive-foreground: #2d1b50;
+  --border: #3d2b60;
+  --input: #3d2b60;
+  --ring: #b370dd;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Base background for all pages */
+.app-background {
+  background-color: #0a0118; /* Deep purple-blue */
+  background-image: linear-gradient(to bottom, #0a0118, #1a1333);
+  color: white;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Mood gradients - vibrant and emotional */
+.mood-gradient-calm {
+  @apply bg-gradient-to-r from-blue-700 to-blue-500;
+}
+
+.mood-gradient-comfort {
+  @apply bg-gradient-to-r from-amber-600 to-amber-400;
+}
+
+.mood-gradient-melancholy {
+  @apply bg-gradient-to-r from-purple-800 to-purple-600;
+}
+
+.mood-gradient-hope {
+  @apply bg-gradient-to-r from-teal-600 to-teal-400;
+}
+
+.mood-gradient-energy {
+  @apply bg-gradient-to-r from-red-600 to-orange-500;
+}
+
+.mood-gradient-primary {
+  @apply bg-gradient-to-r from-purple-700 to-blue-600;
+}
+
+/* Card styles with mood colors */
+.mood-card {
+  @apply bg-card/80 backdrop-blur-md border border-white/10 rounded-xl shadow-lg;
+}
+
+.card-calm {
+  @apply bg-gradient-to-br from-[oklch(0.25_0.1_220)] to-[oklch(0.2_0.1_200)];
+}
+
+.card-comfort {
+  @apply bg-gradient-to-br from-[oklch(0.25_0.1_80)] to-[oklch(0.2_0.1_60)];
+}
+
+.card-melancholy {
+  @apply bg-gradient-to-br from-[oklch(0.2_0.1_280)] to-[oklch(0.15_0.1_260)];
+}
+
+.card-hope {
+  @apply bg-gradient-to-br from-[oklch(0.25_0.1_180)] to-[oklch(0.2_0.1_160)];
+}
+
+.card-energy {
+  @apply bg-gradient-to-br from-[oklch(0.25_0.15_30)] to-[oklch(0.2_0.15_60)];
+}
+
+.card-primary {
+  @apply bg-gradient-to-br from-[oklch(0.25_0.1_280)] to-[oklch(0.2_0.1_200)];
+}
+
+/* Subtle noise texture */
+.noise-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+/* Subtle glow effect */
+.subtle-glow {
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+/* Music visualizer for landing page only */
+.visualizer-container {
+  @apply flex items-end h-10 w-full gap-[2px];
+}
+
+.visualizer-bar {
+  @apply flex-1 bg-gradient-to-t from-purple-700 to-purple-400 rounded-t animate-visualizer;
+}
+
+@keyframes visualizer {
+  0%,
+  100% {
+    height: 10%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.animate-visualizer {
+  animation: visualizer 1.5s ease-in-out infinite;
+}
+
+.visualizer-bar:nth-child(1) {
+  animation-delay: 0.0s;
+}
+.visualizer-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.visualizer-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.visualizer-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.visualizer-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.visualizer-bar:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.visualizer-bar:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.visualizer-bar:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.visualizer-bar:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.visualizer-bar:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+/* Landing page background enhancement */
+.landing-accent {
+  @apply fixed rounded-full opacity-20 blur-[100px] z-0;
+}
+
+
+
+/* Preset card gradients */
+.preset-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.preset-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+  transition: height 0.3s ease;
+}
+
+.preset-card:hover::before {
+  height: 4px;
+}
+
+/* Category pill animation */
+@keyframes shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.category-pill-active {
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%);
+  background-size: 200% auto;
+  animation: shimmer 2s infinite;
+}
+
+/* Subtle background pattern */
+.bg-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Fancy hover effect for Create Custom button */
+.custom-button-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-button-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.custom-button-hover:hover::after {
+  transform: rotate(45deg) translate(100%, 100%);
+}
