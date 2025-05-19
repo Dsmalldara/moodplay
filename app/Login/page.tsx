@@ -1,120 +1,50 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Music, ArrowRight } from "lucide-react"
+"use client"
 
-export default function SpotifyLoginPage() {
+import { Button } from "@/lib/components/ui/button"
+
+import LogoHeader from "@/app/Logo/LogoHeader"
+import { useState } from "react"
+
+export default function MinimalLoginPage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Top gradient decoration */}
-      <div className="h-16 bg-gradient-to-r from-[oklch(0.6_0.24_296.88)] to-[oklch(0.7_0.25_0)]"></div>
+    <div className="min-h-screen flex flex-col ">
+      {/* Main content - centered with flex-1 to push footer down */}
+      <div className="flex-1 flex  items-center justify-center p-6">
+        <div className=" w-full bg-[#2a1450] max-w-md backdrop-filter-md rounded-2xl shadow-lg p-8">
 
-      <div className="flex-1 flex flex-col items-center justify-center p-6">
-        <div className="w-full max-w-md">
-          {/* Logo and branding */}
-          <div className="text-center mb-8">
-            <Link href="/" className="inline-flex items-center gap-2 mb-2">
-              <Music className="h-8 w-8 text-[oklch(0.6_0.24_296.88)]" />
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-[oklch(0.6_0.24_296.88)] to-[oklch(0.7_0.25_0)] bg-clip-text text-transparent">
-                MoodPlay
-              </h1>
-            </Link>
-            <p className="text-gray-600">Turn feelings into playlists</p>
-          </div>
-
-          {/* Login card */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-semibold mb-3">Connect with Spotify</h2>
-              <p className="text-gray-600">
-                Log in with your Spotify account to create personalized playlists based on your mood.
-              </p>
-            </div>
-
-            {/* Spotify login button */}
-            <Button
-              className="w-full py-6 rounded-full bg-[#1DB954] hover:bg-[#1aa34a] text-white flex items-center justify-center gap-3 mb-6"
-              size="lg"
-            >
-              <SpotifyLogo className="h-6 w-6" />
-              <span className="font-medium">Continue with Spotify</span>
-            </Button>
-
-            {/* Permissions info */}
-            <div className="space-y-3 text-sm text-gray-500">
-              <p className="text-center">MoodPlay will request permission to:</p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-[#1DB954] p-1 mt-0.5">
-                    <svg className="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <span>Access your Spotify profile information</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-[#1DB954] p-1 mt-0.5">
-                    <svg className="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <span>Create playlists on your Spotify account</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-[#1DB954] p-1 mt-0.5">
-                    <svg className="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <span>View your Spotify listening history</span>
-                </li>
-              </ul>
+          <div className="mb-6">
+            <div className="flex items-start gap-2 mb-4">
+              <div className="rounded-full bg-[#1DB954] p-1 mt-0.5 flex-shrink-0">
+                <svg className="h-2 w-2  text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <span className="text-white">Create playlists on your Spotify account</span>
             </div>
           </div>
-
-          {/* Alternative option */}
-          <div className="text-center">
-            <p className="text-gray-600 mb-4">Want to explore first?</p>
-            <Link href="/presets">
-              <Button variant="outline" className="rounded-full">
-                Browse Preset Moods <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
+          <div className="text-center mb-8 flex flex-col items-center justify-center mx-auto my-auto">
+              <LogoHeader width={300} />
+           <SpotifyLoginButton/>
           </div>
         </div>
       </div>
 
-      {/* Music wave decoration */}
-      <div className="h-24 overflow-hidden">
-        <svg className="w-full h-full" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 0L48 8.875C96 17.75 192 35.5 288 44.375C384 53.25 480 53.25 576 44.375C672 35.5 768 17.75 864 26.625C960 35.5 1056 71 1152 80C1248 89 1344 71 1392 62.125L1440 53.25V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V0Z"
-            fill="url(#paint0_linear)"
-          />
-          <defs>
-            <linearGradient id="paint0_linear" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#1DB954" />
-              <stop offset="1" stopColor="oklch(0.6 0.24 296.88)" />
-            </linearGradient>
-          </defs>
-        </svg>
+      {/* Footer with Spotify branding - at the bottom */}
+      <div className="h-16 bg-[#191414] w-full flex items-center justify-center">
+        <p className="text-xs text-gray-400 flex items-center gap-1">
+          Powered by
+          <SpotifyLogo className="h-4 w-4 text-[#1DB954]" />
+          <span className="text-white font-medium">Spotify</span>
+        </p>
       </div>
     </div>
   )
 }
 
-// Spotify logo component
 function SpotifyLogo({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -122,3 +52,34 @@ function SpotifyLogo({ className }: { className?: string }) {
     </svg>
   )
 }
+
+
+interface SpotifyLoginButtonProps {
+  className?: string
+  size?: "default" | "sm" | "lg" | "icon"
+  variant?: "default" | "outline" | "ghost"
+}
+
+ function SpotifyLoginButton({ className = "", size = "default", variant = "default" }: SpotifyLoginButtonProps) {
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleLogin = async () => {
+    setIsLoading(true)
+    // Redirect to our login API route
+    window.location.href = "/api/login"
+  }
+
+  return (
+    <Button
+      className={`${className} ${variant === "default" ? "bg-[#1DB954] hover:bg-[#1aa34a] text-white" : ""} flex items-center justify-center gap-2 rounded-full`}
+      size={size}
+      variant={variant}
+      onClick={handleLogin}
+      disabled={isLoading}
+    >
+      <SpotifyLogo className="h-5 w-5" />
+      <span>{isLoading ? "Connecting..." : "Continue with Spotify"}</span>
+    </Button>
+  )
+}
+

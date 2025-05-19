@@ -4,9 +4,9 @@
 import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/lib/components/ui/button"
+import { Textarea } from "@/lib/components/ui/textarea"
+import { Badge } from "@/lib/components/ui/badge"
 import { Music, Wand2, ArrowLeft, PlusCircle, X, Sparkles } from "lucide-react"
 import MoodPlayLogo from "../Logo/LogoHeader"
 

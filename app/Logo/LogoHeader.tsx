@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 
-export default function MoodPlayLogo({width=200, className=""}: {width: number, className?: string}) {
+export default function MoodPlayLogo({width=200, className="", linkToHome}: {width: number, className?: string,linkToHome?:boolean}) {
   const wave1Ref = useRef<SVGPathElement>(null);
   const wave2Ref = useRef<SVGPathElement>(null);
   
@@ -41,7 +41,7 @@ export default function MoodPlayLogo({width=200, className=""}: {width: number, 
     };
   }, []);
   
-  return (
+  const logoContent = (
     <Link href="/">
       <div className={`flex items-center ${className}`}>
         <svg 
@@ -111,4 +111,5 @@ export default function MoodPlayLogo({width=200, className=""}: {width: number, 
       </div>
     </Link>
   )
+  return linkToHome ? <Link href="/">{logoContent}</Link> : logoContent
 }

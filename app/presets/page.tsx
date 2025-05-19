@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "@/lib/components/ui/button"
+import { Card } from "@/lib/components/ui/card"
 import { ArrowRight, PlusCircle, TrendingUp } from "lucide-react"
 import MoodPlayLogo from "../Logo/LogoHeader"
 
@@ -103,9 +103,9 @@ export default function PresetsPage() {
         isScrolled ? "bg-gray-900/80 backdrop-blur-lg shadow-lg" : ""
       }`}>
         <div className="container max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/">
-            <MoodPlayLogo width={140} />
-          </Link>
+          
+            <MoodPlayLogo width={140} linkToHome={true}/>
+      
           
           <Link href="/mood">
             <Button className="rounded-full bg-gradient-to-r from-[#D16BA5] via-[#86A8E7] to-[#5FFBF1] hover:opacity-90 text-white">

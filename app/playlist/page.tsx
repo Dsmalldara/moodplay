@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "@/lib/components/ui/button"
+import { Card } from "@/lib/components/ui/card"
 import { Music, Share2, ExternalLink, Heart, SkipBack, Play, Pause, SkipForward, Volume2 } from "lucide-react"
 import Image from "next/image"
 import LogoHeader from "../Logo/LogoHeader"

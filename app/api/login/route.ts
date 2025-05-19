@@ -3,7 +3,7 @@ import { cookies } from "next/headers"
 
 // Environment variables
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID as string
-const REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI || "http://localhost:3000/api/callback"
+const REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI 
 
 /**
  * Generates a random string of specified length
@@ -44,7 +44,7 @@ export async function GET() {
     response_type: "code",
     client_id: CLIENT_ID,
     scope: scope,
-    redirect_uri: REDIRECT_URI,
+    redirect_uri: REDIRECT_URI as string,
     state: state,
   })
 
