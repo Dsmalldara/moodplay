@@ -102,9 +102,10 @@ export default function MoodPlayLogo({width=200, className="", linkToHome}: {wid
           {/* Gradient definition */}
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#D16BA5" /> {/* Pink */}
-              <stop offset="50%" stopColor="#86A8E7" /> {/* Blue */}
-              <stop offset="100%" stopColor="#5FFBF1" /> {/* Teal */}
+              <stop offset="0%" stopColor="#D16BA5" /> 
+              <stop offset="50%" stopColor="#86A8E7" /> 
+              <stop offset="100%" stopColor="#5FFBF1" /> 
+              
             </linearGradient>
           </defs>
         </svg>
